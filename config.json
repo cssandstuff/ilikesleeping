@@ -1,0 +1,23 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "Hanako Clulow",
+    "owner": "Hanako Clulow",
+    "description": "Illustration"
+  },
+  "plugins": [
+    "wintersmith-livereload"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  }
+}

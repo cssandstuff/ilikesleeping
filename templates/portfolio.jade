@@ -1,0 +1,29 @@
+
+extends layout
+
+block content
+  div.homeshow
+    ul
+      each homeImage in contents.portfolio 
+        if homeImage.filepath && homeImage.metadata == undefined
+          li
+            div.img
+              img(src='/'+homeImage.filepath.relative)
+        else if homeImage.metadata == undefined
+          li.group
+            - console.log(homeImage)
+            -var index = 0
+            ul
+              each image in homeImage
+                li
+                  - var thingies = image.__filename.split('/')
+                  - console.log(thingies[thingies.length - 2])  
+                  div.img
+                    img(src='/'+image.filepath.relative)
+            each image, name in homeImage
+              - var thingies = image.__filename.split('/')
+              - var thing = thingies[thingies.length - 2]
+              - var title = thing.substr(3)
+              - index++
+              if index == 1
+                h2=title
