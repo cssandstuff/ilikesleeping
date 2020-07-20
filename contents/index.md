@@ -1,4 +1,4 @@
 ---
 title: index
-template: index.jade
+template: index.pug
 ---

@@ -5,6 +5,7 @@
     "owner": "Hanako Clulow",
     "description": "Illustration"
   },
+  "output": "./docs",
   "plugins": [
     "wintersmith-livereload"
   ],
