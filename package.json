@@ -1,20 +1,20 @@
 {
   "dependencies": {
     "autoprefixer": "^6.3.6",
-    "directory-tree": "^2.0.0",
-    "moment": "2.3.x",
+    "directory-tree": "^2.2.4",
+    "moment": "^2.27.0",
     "postcss-import": "^8.1.2",
     "postcss-simple-vars": "^2.0.0",
     "typogr": "0.5.x",
     "underscore": "1.4.x",
-    "wintersmith-livereload": "^1.0.0"
+    "wintersmith-livereload": "^1.0.1"
   },
   "scripts": {
     "start": "rm -rf contents/*/*/.DS_Store && rm -rf contents/*/.DS_Store | wintersmith preview"
   },
   "private": "true",
   "devDependencies": {
-    "postcss-nested": "^1.0.0",
+    "postcss-nested": "^1.0.1",
     "wintersmith-postcss": "^1.2.1"
   }
 }
