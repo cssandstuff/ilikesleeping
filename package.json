@@ -2,7 +2,7 @@
   "dependencies": {
     "autoprefixer": "^6.3.6",
     "directory-tree": "^2.2.4",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "postcss-import": "^8.1.2",
     "postcss-simple-vars": "^2.0.0",
     "typogr": "0.5.x",
