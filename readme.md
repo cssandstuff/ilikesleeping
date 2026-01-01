@@ -1,4 +1,1 @@
-
-# Blog
-
-The default [wintersmith](https://github.com/jnordberg/wintersmith) template
+## Hanako Clulow's site

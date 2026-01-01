@@ -1,0 +1,34 @@
+{{>
+	function year() {
+	const now = new Date();
+
+	return `${now.getFullYear()}`;
+	}
+}}
+	
+
+<footer class="footer">
+	<ul>
+		<li>
+			&copy; {{year()}} Hanako Clulow
+		</li>
+</ul>
+</footer>
+
+{{- css }}
+	.footer {
+		margin-top: var(--space-3);
+		padding: var(--space) var(--space-2);
+		display: flex;
+    justify-content: space-between;
+		align-items: baseline;
+		font-size: 0.9em;
+	}
+	.footer ul{
+		margin: 0; padding: 0;
+		display: flex;
+		gap: var(--space-2);
+		list-style: none;
+	}
+{{ /css }}
+
