@@ -1,0 +1,42 @@
+{{ set currentUrl = page.url }}
+{{ set sortedPages = [...collections.work].sort((a, b) => {
+  // Sort by order
+  return (a.data.order - b.data.order);
+}) }}
+
+
+<ul role="list" class="work-list">
+{{ for link of sortedPages }}
+  <li>
+    <a
+    href="{{ link.url }}">
+    {{# <img src="{{ link.data.imageSrc }}" /> #}}
+      {{ link.data.slug }}
+    </a>
+  </li>
+{{ /for }}
+</ul>
+
+
+{{- css }}
+.work-list {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  gap: 2lh;
+}
+
+.work-list li{
+  width: 33.33%
+}
+
+.work-list li a{
+  display: block;
+  background-color: pink;
+  height: 400px;
+}
+
+.work-list li::marker{
+  font-size: 0;
+}
+{{ /css }}

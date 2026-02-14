@@ -1,0 +1,31 @@
+<div class="fakegrid">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+{{- css }}
+
+  .fakegrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2lh;
+  }
+
+  .fakegrid div{
+    background-color: pink;
+    width: 100%;
+    height: 12lh;
+    margin-top: unset !important;
+  }
+
+{{ /css }}

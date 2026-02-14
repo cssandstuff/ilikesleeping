@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+
+:root{
+  --fontFam: var(--fontFamFallback);
+  --fontFamFallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",sans-serif;
+  --background: #f4f2e9;
+  --grey: #444;
+  --grey-a50: hwb(0 27% 73% / 0.5);
+  --grey-a20: hwb(0 27% 73% / 0.2);
+  --grey-a0: hwb(0 27% 73% / 0);
+	--space: 0.75lh;
+	--space-2: calc(var(--space) * 2);
+	--space-3: calc(var(--space) * 3);
+	--margin: var(--space-2);
+	--link-color: var(--grey);
+  --site-width: 980px;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--background);
+}
+
+body {
+  overflow-y: scroll;
+  font-size: 1em;
+  font-family: var(--fontFam);
+  color: var(--grey);
+  max-width: var(--site-width);
+  margin: auto;
+}
+
+a[href^="http"]::after {
+  content: " ↗";
+  margin-inline-end: 4px;
+}
+
+.layout{
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas: 
+    "header"
+    "content"
+    "footer";
+  height: 100%;
+  margin: auto;
+}
+
+main{
+  max-width: var(--site-width);
+  padding: 0 calc(var(--space) * 2) var(--space) calc(var(--space) * 2);
+}
+
+pre{ 
+  display: block;
+  background: var(--grey);
+  color: #fff;
+  padding: 0.5em;
+  border-radius: 4px;
+  font-size: 1rem;
+  border: 1px solid rgba(255,255,255,0.2);
+} 
+
+h1, h2, h3, h4, h5, h6, p { 
+  margin: 0; 
+  line-height: 1;
+  color: var(--grey);
+  font-family: var(--fontFam);
+}
+
+main p{
+  line-height: 1.3;
+}
+
+a{
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--grey-a20);
+}
+
+a:hover{
+  text-decoration-color: var(--link-color);
+}
+
+a:active, a:link{
+  color: var(--link-color);
+}
+
+a:visited{
+  color: var(--link-color);
+}
+
+#main div > *+* {
+  margin-top: calc(var(--space));
+}
+
+#main div > *:not(h2)+*:is(h2,h3) {
+  margin-top: var(--space-2);
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  padding: var(--space) var(--space) var(--space) var(--space-2);
+  justify-content: space-between;
+  background-color: var(--background);
+  color: var(--grey);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.header h2{
+  font-size: 1.4em;
+  text-transform: uppercase;
+  margin: var(--space) 0 0.5lh;
+}
+
+.header h2 span{
+  display: block;
+  font-weight: 200;
+  text-transform: uppercase;
+  font-size: 0.43em;
+  opacity: 0.5;
+  margin-top: 5px;
+  letter-spacing: 0.09em;
+  margin-left: 3px;
+}
+
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+@keyframes fade-in {
+  from { 
+    opacity: 0; 
+    scale: 0.996; 
+  }
+}
+
+@keyframes fade-out {
+  to { 
+    opacity: 0; 
+    scale: 0.999; 
+  }
+}
+
+
+/* View transitions stuff, only needed if you want transitions when switching routes */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.33s;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.29, 1);
+  mix-blend-mode: normal;
+}
+
+/* feels like cheating */
+body #main{
+  view-transition-name: mainbod;
+}
+
+
+::view-transition-old(mainbod),
+::view-transition-new(mainbod) {
+  mix-blend-mode: normal;
+  animation: none;
+}
+
+::view-transition-old(mainbod) {
+  animation: 160ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+
+}
+
+::view-transition-new(mainbod) {
+  animation: 200ms cubic-bezier(0, 0, 0.2, 1) 160ms both fade-in;
+  object-fit: cover;
+}
+
+/* if people prefer to go without */
+@media (prefers-reduced-motion) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
