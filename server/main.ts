@@ -8,9 +8,9 @@ app.use(async (ctx, next) => {
   const isHTMXRequest = ctx.request.headers.get("hx-request");
 
   try {
-    console.log('yo');
+    // console.log('yo');
     if (isHTMXRequest) {
-      console.log('hello')
+      // console.log('hello')
       // we set the response header to use Vary, so that non-htmx requests are cached separately;
       ctx.response.headers.append("Vary", "HX-Request");
     }
