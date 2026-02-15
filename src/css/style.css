@@ -117,7 +117,8 @@ a:visited{
 .header h2{
   font-size: 1.4em;
   text-transform: uppercase;
-  margin: var(--space) 0 0.5lh;
+  margin: 0.5lh 0 0.5lh;
+  line-height: 1.5lh;
 }
 
 .header h2 span{
